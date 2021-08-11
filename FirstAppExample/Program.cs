@@ -16,11 +16,28 @@ namespace FirstAppExample
 
             Square square = new Square(30);
 
-            Rectangle square1 = new Square(30);
+            Circle circle = new Circle(30);
 
-            Console.Write("A rectangle area = {0}", rectangle.GetArea());
-            Console.WriteLine();
-            Console.Write("A square area = {0}", square.GetArea());
+            List<Shapes> shapes = new List<Shapes>();
+
+            shapes.Add(rectangle);
+            shapes.Add(square);
+            shapes.Add(circle);
+
+            Shapes shapes1 = new Rectangle(30, 30);
+            
+            foreach(var shape in shapes)
+            {
+                Console.WriteLine(shape.GetArea());
+            }
+            //Console.Write("A rectangle area = {0}", rectangle.GetArea());
+            //Console.WriteLine();
+            //Console.Write("A square area = {0}", square.GetArea());
+            //Console.WriteLine();
+            //Console.Write("A circle area = {0}", circle.GetArea());
+
+            IDongVatTrenCan dongVatTrenCan = new ConEch();
+            dongVatTrenCan.Jump();
 
             Console.ReadKey();
         }

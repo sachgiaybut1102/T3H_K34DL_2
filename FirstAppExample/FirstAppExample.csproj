@@ -48,8 +48,11 @@
     <Compile Include="Hoc\Chuong2\Muc21.cs" />
     <Compile Include="Hoc\Chuong3\Cat.cs" />
     <Compile Include="Hoc\Chuong3\Circle.cs" />
+    <Compile Include="Hoc\Chuong3\ConEch.cs" />
     <Compile Include="Hoc\Chuong3\Diem.cs" />
     <Compile Include="Hoc\Chuong3\HoanVi.cs" />
+    <Compile Include="Hoc\Chuong3\IDongVatDuoiNuoc.cs" />
+    <Compile Include="Hoc\Chuong3\IDongVatTrenCan.cs" />
     <Compile Include="Hoc\Chuong3\Rectangle.cs" />
     <Compile Include="Hoc\Chuong3\Shapes.cs" />
     <Compile Include="Hoc\Chuong3\SoPhuc.cs" />

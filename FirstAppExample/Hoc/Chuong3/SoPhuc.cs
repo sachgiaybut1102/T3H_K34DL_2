@@ -43,6 +43,12 @@ namespace FirstAppExample.Hoc.Chuong3
             return result;
         }
 
+        /// <summary>
+        /// Nạp chồng toán tử công hai số phức với nhau
+        /// </summary>
+        /// <param name="a">Số phức</param>
+        /// <param name="b">Số phức</param>
+        /// <returns>Một số phức</returns>
         public static SoPhuc operator +(SoPhuc a, SoPhuc b)
         {
             SoPhuc result = new SoPhuc();
@@ -53,6 +59,12 @@ namespace FirstAppExample.Hoc.Chuong3
             return result;
         }
 
+        /// <summary>
+        /// Nạp chồng toán tử cộng một số phức với 1 số nguyên
+        /// </summary>
+        /// <param name="a">Số phức</param>
+        /// <param name="b">số nguyên</param>
+        /// <returns>Số nguyên</returns>
         public static SoPhuc operator +(SoPhuc a, int b)
         {
             SoPhuc result = new SoPhuc();
