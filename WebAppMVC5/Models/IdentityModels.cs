@@ -29,5 +29,7 @@ namespace WebAppMVC5.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<WebAppMVC5.Models.EF.Category> Categories { get; set; }
     }
 }

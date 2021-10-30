@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "TamGiac";
+}
+
+<h2>TamGiac</h2>
+<div>
+    <div id="msg" class="alert"></div>
+    <div class="form-group">
+        <label class="fw-bold">Cạnh A: </label>
+        <input id="a" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="fw-bold">Cạnh A: </label>
+        <input id="b" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label class="fw-bold">Cạnh A: </label>
+        <input id="c" class="form-control" />
+    </div>
+    <button id="btn-check" class="btn btn-primary">Kiểm tra tam giác</button>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $('#btn-check').click(function () {
+                let a = parseInt($('#a').val());
+                let b = parseInt($('#b').val());
+                let c = parseInt($('#c').val());
+
+                if (a + b > c && a + c > b && b + c > a) {
+                    let msg = 'là kết quả của là hình gì, các bạn cần làm diều kiện sửa gán cho msg';
+                    //
+                    //Đoạn tìm loại tam giác các bạn cần làm
+                    ///
+                    showMessage(true, msg);
+                } else {
+                    showMessage(false, '3 giá trị vừa nhập không phải là độ dài 3 cạnh của một tam giác!');
+                }
+
+            });
+
+            $.ajax({
+                type: 'GET',
+                datatype: 'JSON',
+                url: 'https://choang.club/luckydice/api/luckydice/GetSessionDetails?gameSessionId=811522&isOdd=2&betType=1',
+
+                success: function (result) {
+                    var data = result.data;
+                    console.log(result);
+                   
+
+                }
+            });
+        });
+
+        function showMessage(isSuccess, msg) {
+            let alert = isSuccess ? 'alert-success' : 'alert-danger';
+
+            $('#msg').removeClass('alert-success')
+                .removeClass('alert-danger')
+                .addClass(alert)
+                .html(msg);
+        }
+    </script>
+}

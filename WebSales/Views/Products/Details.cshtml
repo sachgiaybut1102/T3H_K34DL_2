@@ -1,0 +1,83 @@
+﻿@model WebSales.Models.EF.Product
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="card container shadow col-md-6 col-12">
+    <div class="card-body">
+        <h2>Chi tiết</h2>
+        <div class="form-horizontal">
+            <h4>Sản phẩm</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label font-weight-bold">Tên sản phẩm</label>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label font-weight-bold">Loại sản phẩm</label>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Category.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4 col-12">
+                    <label class="control-label font-weight-bold">Đơn giá</label>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.UnitPrice, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.UnitPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4 col-12">
+                    <label class="control-label font-weight-bold">Ngày sản xuất</label>
+                    <div class="form-group">
+                        <input type="date" id="ProductDate" name="ProductDate" class="form-control" value="@Model.ProductDate.ToString("yyyy-MM-dd")" readonly />
+                        @Html.ValidationMessageFor(model => model.ProductDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4 col-12">
+                    <label class="control-label font-weight-bold">Tình trạng</label>
+                    <div class="form-group">
+                        @{
+                            string cssClass = Model.Available ? "btn-success" : "btn-danger";
+                            string content = Model.Available ? "Còn bán" : "Ngừng bán";
+                        }
+                        <button class="btn btn-block btn-sm @cssClass border-dark">@content</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label font-weight-bold">Hình ảnh</label>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label class="control-label font-weight-bold">Mô tả</label>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group text-right">
+                @Html.ActionLink("Chỉnh sửa", "Edit", null, htmlAttributes: new { @class = "btn btn-warning border-dark" })
+                @Html.ActionLink("Quay lại", "Index", null, htmlAttributes: new { @class = "btn btn-default border-dark" })
+            </div>
+        </div>
+    </div>
+</div>
+

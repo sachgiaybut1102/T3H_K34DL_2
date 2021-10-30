@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div>
+    <label>Nhập vào từ khóa để tìm</label>
+    <input id="keyword" name="keyword" class="form-control" />
+    <label>Tổng số trang</label>
+    <input id="pageCount" name="pageCount" class="form-control" />
+    <label>Số trang hiện tại</label>
+    <input id="pageNumber" name="pageNumber" class="form-control" />
+    <label>Số bản ghi hiển thị tại mỗi trang</label>
+    <input id="pageSize" name="pageSize" class="form-control" />
+    <button id="btn-search" type="button" class="btn btn-primary">Tìm kiếm</button>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="data">
+
+</div>
+@section scripts{
+    <script>
+        $(function () {
+            loadData();
+            $('#btn-search').click(function () {
+                loadData();
+            });
+        });
+
+        function loadData() {
+            $.ajax({
+                url: "/Categories/GetViewTableInfo",
+                type: "get",
+                data: {
+                    pageSize: $('#pageSize').val(),
+                    pageNumber: $('#pageNumber').val()
+                },
+                success: function (response) {
+                    $('#data').html(response);
+                }
+            })
+        }
+    </script>
+}

@@ -10,6 +10,7 @@ using WebAppMVC5.Models;
 
 namespace WebAppMVC5.Controllers
 {
+    [Authorize]
     public class MailController : Controller
     {
         // GET: Mail

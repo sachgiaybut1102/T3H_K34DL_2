@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Helper";
+}
+
+<h2>Helper</h2>
+
+@*Tạo 1 Action Link - Sinh sinh kết*@
+@*@Html.ActionLink("Tên hiển thị", "Action", "Controller-Trong Th Action Link không cùng controller", "Danh sách tham số nếu có", "Danh sách thuộc tính của thẻ đó")*@
+@Html.ActionLink("Giới thiệu", "About")
+@Html.ActionLink("Cập nhật", "Update", new { id = "123" })
+@Html.ActionLink("Cập nhật có Attributes", "UpdateAttributes", new { id = "123" }, htmlAttributes: new { @class = "btn btn-sm btn-success" })
+
+
+@*Tạo Form sử dụng Helper*@
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    <div>Họ và tên</div>
+    @Html.TextBox("FullName", null, htmlAttributes: new { @class = "form-control" })
+    <div>Mật khẩu</div>
+    @Html.Password("FullName", null, htmlAttributes: new { @class = "form-control" })
+
+    <div>Tình trạng hôn nhân</div>
+    @Html.CheckBox("Status")
+
+    <div>Giới tính</div>
+    <lable>@Html.RadioButton("Gender", true) Nam</lable>
+    <lable>@Html.RadioButton("Gender", false) Nữ</lable>
+
+    <div>Chú thích</div>
+    @Html.TextArea("Description", null, htmlAttributes: new { @class = "form-control" })
+
+    @Html.Hidden("Active")
+}
+
+
+@*Tạo DropDownList sử dụng Helper*@
+@Html.DropDownList("MailInfos", ViewBag.MailInfos as SelectList, htmlAttributes: new { @class = "form-control" })

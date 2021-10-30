@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "TestJQuery";
+}
+
+<h2>TestJQuery</h2>
+
+<button id="btn-showMsg">Say Hello</button>
+<button id="btn-addHtml">Add Html</button>
+<button id="btn-getValue">Get Value</button>
+<button id="btn-setValue">Set Value</button>
+<button id="btn-getCss">Get Css</button>
+<button id="btn-setCss">Set Css</button>
+<div>
+    <button id="btn-show">Show</button>
+    <button id="btn-hide">Hide</button>
+    <button id="btn-toggle">Toggle</button>
+    <button id="btn-fadeIn">Fade In</button>
+    <button id="btn-fadeOut">Fade Out</button>
+    <button id="btn-slideUp">Slide Up</button>
+    <button id="btn-slideDown">Slide Down</button>
+
+</div>
+<div id="main">
+    Default
+</div>
+
+<img id="img" src="http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcRp9bn-FnjEmioeFeTNf6KXUMme0oMbYf-KIf6qBQc1iicr0xQ2UFHRC6ATLBG4GHHeOhuViiTUGzWWEQTAYzo"/>
+@section scripts{
+    <script>
+        $(function () {
+            $('#btn-showMsg').click(function () {
+                alert("Hello students T3H, have a nice day ^^!");
+            });
+
+            $('#btn-addHtml').click(function () {
+                var html = '<p>Test add Html</p>' +
+                    '<input id="input" type="text" value="Element 2"/>';
+
+                $('#main').html(html);
+            });
+
+            $('#btn-getValue').click(function () {
+                var val = $('#input').val();
+                var val2 = $('#input').attr('value');
+                var id = $('#input').attr('id');
+                alert(val + ' - ' + val2 + ' - ' + id);
+            });
+
+            $('#btn-setValue').click(function () {
+                var value = "This is new value affter set value into attribute";
+                $('#input').attr('value', value);
+
+            });
+
+            $('#btn-setCss').click(function () {
+                $('#input').css('color', 'red');
+                $('#main').css('background-color', 'cyan');
+            });
+
+            $('#btn-getCss').click(function () {
+                var colorInput = $('#input').css('color');
+                var bgColorMain = $('#main').css('background-color');
+
+                alert(colorInput + ' - ' + bgColorMain);
+            });
+
+
+            //Effect
+
+            $('#btn-show').click(function () {
+                $('#img').show();
+            });
+
+            $('#btn-hide').click(function () {
+                $('#img').hide();
+            });
+
+            $('#btn-toggle').click(function () {
+                $('#img').toggle();
+            });
+
+            $('#btn-fadeIn').click(function () {
+                $('#img').fadeIn();
+            });
+
+            $('#btn-fadeOut').click(function () {
+                $('#img').fadeOut();
+            });
+
+            $('#btn-slideUp').click(function () {
+                $('#img').slideUp();
+            });
+
+            $('#btn-slideDown').click(function () {
+                $('#img').slideDown();
+            });
+        });
+    </script>
+}
